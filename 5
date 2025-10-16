@@ -1,0 +1,23 @@
+Fund Me
+Payable, msg.sender, msg.value, Units of
+Measure
+• Payable
+• Wei/Gwei/Eth Converter
+• msg.sender&msg.value
+*************************************************************************************************************************************************************************************************************************
+
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.6 <0.9.0;
+
+contract FundMe {
+
+    // Mapping to track how much ETH each address has funded
+    mapping(address => uint256) public addressToAmountFunded;
+
+    // // Payable function allows contract to receive ETH
+    function fund() public payable {
+        // msg.sender: Address of the sender who called the fund function
+        // msg.value: Amount of Wei (ETH) sent with the function call
+        addressToAmountFunded[msg.sender] += msg.value;
+    }
+}
